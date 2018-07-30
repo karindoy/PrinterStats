@@ -1,11 +1,12 @@
 class impressora
 {
-	constructor(marca, modelo, local, id, )
+	constructor(marca, modelo, local, id)
 	{
 		this.marca=marca;
 		this.modelo=modelo;
 		this.local=local;
 		this.ip=ip;
+		
 	}
 	
 	toString ()
@@ -63,7 +64,7 @@ var impressora9 = new impressora ("Lexmark", "MS811 dn","lugar", "192.168.0.239"
 
 //console.log (impressora9);
 //------------------------///----------------------//------------------------------//-------------------//
-var impressora10 = new impressora ("Lexmark", "MX511 dn","Diretoria Técnica", "192.168.0.44");
+var impressora10 = new impressora ("Lexmark", "MX511 de","Diretoria Técnica", "192.168.0.44");
 
 //console.log (impressora10);
 //------------------------///----------------------//------------------------------//-------------------//
