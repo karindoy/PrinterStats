@@ -1,47 +1,48 @@
 class impressora
 {
-	constructor(marca, modelo, local, id)
+	constructor(marca, modelo, local, id, Andar)
 	{
 		this.marca=marca;
 		this.modelo=modelo;
 		this.local=local;
 		this.ip=ip;
+		this.Andar=Andar;
 		
 	}
 	
 	toString ()
 	{
-		console.log(this.marca+" | "+this.modelo+" | "+this.local+" | "+this.ip);
+		console.log(this.marca+" | "+this.modelo+" | "+this.local+" | "+this.ip" | "+this.Andar);
 	}
 }
 
 //------------------------//------------------------//--------------------------------//----------------//
 
-var impressora28_Adm = new impressora ("Lexmark", "MS811 dn","Administração", "192.168.0.189");
+var impressora28 = new impressora ("Lexmark", "MS811 dn","Administração", "192.168.0.189", "Térreo, Sala 08");
 
 //console.log (impressoraAdm);
 //------------------------///----------------------//------------------------------//-------------------//
-var impressora1 = new impressora ("Lexmark", "MS811 dn","lugar", "192.168.0.83");
+var impressora1 = new impressora ("Lexmark", "MS811 dn","Sala dr carlos", "192.168.0.83","1° Andar,Sala: 1");
 
 //console.log (impressora1);
 //------------------------//------------------------//--------------------------------//----------------//
 
-var impressora2 = new impressora ("Lexmark", "MS811 dn","lugar", "192.168.0.154");
+var impressora2 = new impressora ("Lexmark", "MS811 dn","Ed. Física", "192.168.0.154", "3° Andar,Sala: 1");
 
 //console.log (impressora2);
 //------------------------///----------------------//------------------------------//-------------------//
 ****
-var impressora3 = new impressora ("Lexmark", "MS811 dn","lugar", "local");
+var impressora3 = new impressora ("Lexmark", "MS811 dn","lugar", "local", "x° Andar,Sala: z");
 
 //console.log (impressora3);
 //------------------------///----------------------//------------------------------//-------------------//
 
-var impressora4 = new impressora ("Lexmark", "MS811 dn","lugar", "192.168.0.226");
+var impressora4 = new impressora ("Lexmark", "MS811 dn","Eletro", "192.168.0.226", "1° Andar");
 
 //console.log (impressora4);
 //------------------------///----------------------//------------------------------//-------------------//
 
-var impressora5 = new impressora ("Lexmark", "MS811 dn","lugar", "192.168.0.238");
+var impressora5 = new impressora ("Lexmark", "MS811 dn","Consultório", "192.168.0.238", "2° Andar,Sala: 14");
 
 //console.log (impressora5);
 //------------------------///----------------------//------------------------------//-------------------//
@@ -56,11 +57,11 @@ var impressora7 = new impressora ("Lexmark", "MS811 dn","lugar", "local");
 //console.log (impressora7);
 //------------------------///----------------------//------------------------------//-------------------//
 
-var impressora8 = new impressora ("Lexmark", "MS811 dn","lugar", "192.168.0.239");
+var impressora8 = new impressora ("Lexmark", "MS811 dn","Compras", "192.168.0.239", "3° Andar,Sala: 1");
 
 //console.log (impressora8);
 //------------------------///----------------------//------------------------------//-------------------//
-var impressora9 = new impressora ("Lexmark", "MS811 dn","lugar", "192.168.0.239");
+var impressora9 = new impressora ("Lexmark", "MS811 dn","Consultório 07", "192.168.0.235", "3° Andar,Sala: 1");
 
 //console.log (impressora9);
 //------------------------///----------------------//------------------------------//-------------------//
@@ -110,7 +111,7 @@ var impressora20 = new impressora ("Lexmark", "MX511","lugar", "192.168.0.195");
 //console.log (impressora20);
 //------------------------///----------------------//------------------------------//-------------------//
 ****
-var impressora21 = new impressora ("Epson", "L355","lugar", "local");
+var impressora21 = new impressora ("Epson", "L355","convivencia", "local");
 
 //console.log (impressora21);
 //------------------------///----------------------//------------------------------//-------------------//

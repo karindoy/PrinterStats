@@ -1,4 +1,4 @@
-//LexMark 
+﻿//LexMark 
 
 //monocromática
 
@@ -30,4 +30,4 @@ cartuchoPretoInstallDate()
 }
 
 //colorida
-//"Lexmark", "CS510 de"
+//"Lexmark", "CS510 de".
