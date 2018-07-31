@@ -75,73 +75,73 @@ var printer_HP_laserjet400_ip157 = new impressora ("HP", "laserjet 400","lugar",
 //console.log (impressora12);
 //------------------------///----------------------//------------------------------//-------------------//
 //local
-var impressora13 = new impressora ("HP", "laserjet 1320","lugar", "local", "Andar:x ,Sala: y");
+var printer_HP_laserjet1320_ipLocal = new impressora ("HP", "laserjet 1320","lugar", "local", "Andar:x ,Sala: y");
 
 //console.log (impressora13);
 //------------------------///----------------------//------------------------------//-------------------//
-var impressora14 = new impressora ("Phaser", "3100MFP","lugar", "local", "Andar:x ,Sala: y");
+var printer_Phaser_3100MFP_ipLocal = new impressora ("Phaser", "3100MFP","lugar", "local", "Andar:x ,Sala: y");
 
 //console.log (impressora14);
 //------------------------///----------------------//------------------------------//-------------------//
-var impressora15 = new impressora ("Lexmark", "MS317","lugar", "192.168.0.237", "Andar:x ,Sala: y");
+var printer_LexMark_MS317_ip237 = new impressora ("Lexmark", "MS317","lugar", "192.168.0.237", "Andar:x ,Sala: y");
 
 //console.log (impressora15);
 //------------------------///----------------------//------------------------------//-------------------//
-var impressora16 = new impressora ("Lexmark", "MS317","lugar", "192.168.0.242", "Andar:x ,Sala: y");
+var printer_LexMark_MS317_ip242 = new impressora ("Lexmark", "MS317","lugar", "192.168.0.242", "Andar:x ,Sala: y");
 
 //console.log (impressora16);
 //------------------------///----------------------//------------------------------//-------------------//
-var impressora17 = new impressora ("Lexmark", "MX511","lugar", "local", "Andar:x ,Sala: y");
+var printer_LexMark_MX511_ipLocal = new impressora ("Lexmark", "MX511","lugar", "local", "Andar:x ,Sala: y");
 
 //console.log (impressora17);
 //------------------------///----------------------//------------------------------//-------------------//
-var impressora18 = new impressora ("Lexmark", "MS811 dn","lugar", "192.168.0.213", "Andar:x ,Sala: y");
+var printer_LexMark_MS811dn_ip213 = new impressora ("Lexmark", "MS811 dn","lugar", "192.168.0.213", "Andar:x ,Sala: y");
 
 //console.log (impressora18);
 //------------------------///----------------------//------------------------------//-------------------//
-var impressora19 = new impressora ("Lexmark", "MS811 dn","lugar", "192.168.0.230", "Andar:x ,Sala: y");
+var printer_LexMark_MS811dn_ip230 = new impressora ("Lexmark", "MS811 dn","lugar", "192.168.0.230", "Andar:x ,Sala: y");
 
 //console.log (impressora19);
 //------------------------///----------------------//------------------------------//-------------------//
-var impressora20 = new impressora ("Lexmark", "MX511","lugar", "192.168.0.195", "Andar:x ,Sala: y");
+var printer_LexMark_MX511_ip195 = new impressora ("Lexmark", "MX511","lugar", "192.168.0.195", "Andar:x ,Sala: y");
 
 //console.log (impressora20);
 //------------------------///----------------------//------------------------------//-------------------//
-//****
-var impressora21 = new impressora ("Epson", "L355","convivencia", "local", "Andar:x ,Sala: y");
+//local
+var printer_Epson_L355_ipLocal = new impressora ("Epson", "L355","convivencia", "local", "Andar:x ,Sala: y");
 
 //console.log (impressora21);
 //------------------------///----------------------//------------------------------//-------------------//
-var impressora22 = new impressora ("Lexmark", "CS510 de","lugar", "192.168.0.210", "Andar:x ,Sala: y");
+var printer_LexMark_CS510_ip210 = new impressora ("Lexmark", "CS510 de","lugar", "192.168.0.210", "Andar:x ,Sala: y");
 
 //console.log (impressora22);
 //------------------------///----------------------//------------------------------//-------------------//
-var impressora23 = new impressora ("Lexmark", "MS317","lugar", "192.168.0.224", "Andar:x ,Sala: y");
+var printer_LexMark_MS317_ip224 = new impressora ("Lexmark", "MS317","lugar", "192.168.0.224", "Andar:x ,Sala: y");
 
 //console.log (impressora23);
 //------------------------///----------------------//------------------------------//-------------------//
-var impressora24 = new impressora ("Lexmark", "MS811 dn","lugar", "192.168.0.229", "Andar:x ,Sala: y");
+var printer_LexMark_MS811dn_ip229 = new impressora ("Lexmark", "MS811 dn","lugar", "192.168.0.229", "Andar:x ,Sala: y");
 
 //console.log (impressora24);
 //------------------------///----------------------//------------------------------//-------------------//
-var impressora25 = new impressora ("Lexmark", "MS811 dn","lugar", "192.168.0.187", "Andar:x ,Sala: y");
+var printer_LexMark_MS811dn_ip187 = new impressora ("Lexmark", "MS811 dn","lugar", "192.168.0.187", "Andar:x ,Sala: y");
 
 //console.log (impressora25);
 //------------------------//------------------------//--------------------------------//----------------//
 
-var printer_Mdl_MS811dn_ip189_Adm = new impressora ("Lexmark", "MS811 dn","Administracao", "192.168.0.189", "Andar:Terreo, Sala:8");
+var printer_Mdl_MS811dn_ip189 = new impressora ("Lexmark", "MS811 dn","Administracao", "192.168.0.189", "Andar:Terreo, Sala:8");
 
 //console.log (impressora26);
 //------------------------///----------------------//------------------------------//-------------------//
-var impressora27 = new impressora ("Lexmark", "MS317","lugar", "192.168.0.227", "Andar:x ,Sala: y");
+var printer_LexMark_MS317_ip227 = new impressora ("Lexmark", "MS317","lugar", "192.168.0.227", "Andar:x ,Sala: y");
 
 //console.log (impressora27);
 //------------------------///----------------------//------------------------------//-------------------//
-var impressora28 = new impressora ("Lexmark", "MS317","lugar", "192.168.0.88", "Andar:x ,Sala: y");
+var printer_LexMark_MS317_ip88 = new impressora ("Lexmark", "MS317","lugar", "192.168.0.88", "Andar:x ,Sala: y");
 
 //console.log (impressora28);
 //------------------------///----------------------//------------------------------//-------------------//
-var impressora29 = new impressora ("Lexmark", "T654 dn","lugar", "192.168.0.129", "Andar:x ,Sala: y");
+var printer_LexMark_T654_ip129 = new impressora ("Lexmark", "T654 dn","lugar", "192.168.0.129", "Andar:x ,Sala: y");
 
 //console.log (impressora29);
 //------------------------///----------------------//------------------------------//-------------------//
