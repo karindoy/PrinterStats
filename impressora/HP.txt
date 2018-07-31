@@ -1,3 +1,3 @@
 //HP mono
 
-//"HP", "laserjet 1320"
+//"HP", "laserjet 1320".
