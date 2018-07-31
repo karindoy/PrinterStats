@@ -18,9 +18,8 @@ class impressora
 
 //------------------------//------------------------//--------------------------------//----------------//
 
-var impressora28 = new impressora ("Lexmark", "MS811 dn","Administração", "192.168.0.189", "Térreo, Sala 08");
+var printer_M811dn_ip189_Adm = new impressora ("Lexmark", "MS811 dn","Administracao", "192.168.0.189", "Terreo, Sala 08");
 
-console.log (impressora28);
 //------------------------///----------------------//------------------------------//-------------------//
 var impressora1 = new impressora ("Lexmark", "MS811 dn","Sala dr carlos", "192.168.0.83","1° Andar,Sala: 1");
 
@@ -129,10 +128,6 @@ var impressora24 = new impressora ("Lexmark", "MS811 dn","lugar", "192.168.0.229
 //------------------------///----------------------//------------------------------//-------------------//
 var impressora25 = new impressora ("Lexmark", "MS811 dn","lugar", "192.168.0.187");
 
-//console.log (impressora25);
-//------------------------///----------------------//------------------------------//-------------------//
-var impressora26 = new impressora ("Lexmark", "MS811 dn","lugar", "192.168.0.189");
-
 //console.log (impressora26);
 //------------------------///----------------------//------------------------------//-------------------//
 var impressora27 = new impressora ("Lexmark", "MS317","lugar", "192.168.0.227");
@@ -149,3 +144,5 @@ var impressora30 = new impressora ("Lexmark", "T654 dn","lugar", "192.168.0.129"
 //------------------------///----------------------//------------------------------//-------------------//
 
 impressora28.toString();
+
+

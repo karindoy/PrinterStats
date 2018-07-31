@@ -7,6 +7,29 @@ var http = require('http'),
     dom = require('xmldom').DOMParser;
 
 
+class impressora
+{
+    constructor(marca, modelo, local, ip, Andar)
+    {
+        this.marca=marca;
+        this.modelo=modelo;
+        this.local=local;
+        this.ip=ip;
+        this.Andar=Andar;
+
+    }
+
+    toString ()
+    {
+        console.log(this.marca+" | "+this.modelo+" | "+this.local+" | "+this.ip+" | "+this.Andar);
+    }
+}
+
+
+var impLexmarkT654Compras = new impressora ("Lexmark", "T654 dn","lugar", "192.168.0.129");
+
+
+
 function getDataFromXpath(xml,xpathToSelect)
 {
     var doc = new dom().parseFromString(xml)
@@ -21,17 +44,17 @@ var requestsOptionsMap =
 	{
         host:       "192.168.0.2",
         port:       "3128",
-        path:       "http://192.168.0.189/cgi-bin/dynamic/printer/config/reports/devicestatistics.html",
+        path:       "http://"+impLexmarkT654Compras.ip"+/cgi-bin/dynamic/printer/config/reports/devicestatistics.html",
         headers:    
-		{
-            'Proxy-Authorization':  'Basic ' + new Buffer('wagner:nicolas1*').toString('base64')
-        },
+	    {
+                'Proxy-Authorization':  'Basic ' + new Buffer('wagner:nicolas1*').toString('base64')
+            },
     
-		reqCallBackFn : function(response)
-		{
-            console.log(response);
-        }
-    },
+	    reqCallBackFn : function(response)
+	    {
+                console.log(response);
+            }
+        },
     dadosGov_Ubs_DatasetPage : 
 	{
         xpathToCollect : 
