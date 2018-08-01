@@ -147,7 +147,7 @@ var printer_LexMark_T654_ip129 = new impressora ("Lexmark", "T654 dn","lugar", "
 //------------------------///----------------------//------------------------------//-------------------//
 //NomeImpressora.toString();
 
-//Fim Atributos Impressora
+//Fim Atributos Impressoras
 console.log("==[index.js]=>");
 
 var http = require('http'),
