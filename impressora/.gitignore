@@ -1,6 +1,6 @@
 /.idea/
-/ColetaEstatisticas_Epson
-/ipgg/impressora/ObjImpressora
-/ColetaEstatisticas_Lexmark
-/DadosImp_nome_ip_local
-/main
+/ColetaEstatisticas_Epson.js
+/ObjImpressora
+/ColetaEstatisticas_Lexmark.js
+/DadosImp_nome_ip_local.txt
+/main.txt
