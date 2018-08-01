@@ -1,3 +1,0 @@
-//HP mono
-
-//"HP", "laserjet 1320".
