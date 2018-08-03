@@ -8,7 +8,7 @@ var http = require('http'),
 
 // *******************************************   Atributos impressora   ************************************************** //
 //1
-var printer_LexMark_MS811dn_ip189 = new impressora ("Lexmark", "MS811 dn","Sala dr carlos", "192.168.0.83","Andar:1 ,Sala: 1");
+var printer_LexMark_MS811dn_ip83 = new impressora ("Lexmark", "MS811 dn","Sala dr carlos", "192.168.0.83","Andar:1 ,Sala: 1");
 
 //------------------------//------------------------//--------------------------------//----------------//
 //2
@@ -145,12 +145,12 @@ class impressora
     {
         console.log(this.marca+" | "+this.modelo+" | "+this.local+" | "+this.ip+" | "+this.Andar);
     }
+	
+	selectImpressora=printer_Mdl_MS811dn_ip189;
+	
 }
 // ***************************************************************************************************************** //
-
-var impLexmarkT654Compras = new impressora ("Lexmark", "T654 dn","lugar", "192.168.0.129");
-
-
+// ********************************************** get Data from XPath ********************************************************* //		
 
 function getDataFromXpath(xml,xpathToSelect)
 {
@@ -159,8 +159,10 @@ function getDataFromXpath(xml,xpathToSelect)
     
     console.log(nodes)
 }
+// ***************************************************************************************************************** //
 
-var requestsOptionsMap = 
+// ********************************************** Proxy pass ********************************************************* //		
+var requestsOptionsMapProxy = 
 {
     printer_M811dn_ip189 : 
 	{
@@ -170,13 +172,15 @@ var requestsOptionsMap =
         headers:    
 	    {
                 'Proxy-Authorization':  'Basic ' + new Buffer('wagner:nicolas1*').toString('base64')
-            },
+        },
     
 	    reqCallBackFn : function(response)
 	    {
                 console.log(response);
-            }
-        },
+        }
+    },
+};
+// ***************************************************************************************************************** //
 		
 // ********************************************** Coleta Estatistica ********************************************************* //		
 	
@@ -201,21 +205,21 @@ var requestsOptionsMap =
 		//caminho: Contagem lados de mídia>Lados mon. reco.>total
 
 		{
-			/html/body/table[5]/tbody/tr[8]/td[2]/p
+			TotalPaginasImpressas: /html/body/table[5]/tbody/tr[8]/td[2]/p
 		}
 
 
-		getLados()
+		getLadosImpressos()
 		//caminho: Contagem lados de mídia>Lados monocromáticos impressos
 		{
-			/html/body/table[5]/tbody/tr[20]/td[2]/p
+			LadosImpressos:/html/body/table[5]/tbody/tr[20]/td[2]/p
 		}
 
 
 		getCartuchoPretoInstallDate()
 		//caminho: Info de suprimentos>Cartucho Preto
 		{
-			/html/body/table[8]/tbody/tr[3]/td[2]/p
+			CartuchoPretoInstallDate:/html/body/table[8]/tbody/tr[3]/td[2]/p
 		}
 		
 	//-------------------------------------------------------------------//
@@ -228,25 +232,25 @@ var requestsOptionsMap =
 		#
 		*/	
 		
-		getLadosSamsung()
+		getLadosImpressos()
 		//impresões totais (um lado + dois lados)
 		{
-			/html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr[2]/td[2]
+			LadosImpressos:/html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr[2]/td[2]
 		}
 			
 		getFolhasUsadasTotal()
 		{
-			/html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr[6]/td[2]
+			FolhasUsadasTotal: /html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr[6]/td[2]
 		}
 
 		getFolhasUsadasDoisLados()
 		{
-			/html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr[11]/td[2]
+			FolhasUsadasDoisLados:/html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr[11]/td[2]
 		}
 		
 		getPorcentagemToner()
 		{
-			/html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table[2]/tbody/tr[4]/td[2]
+			PorcentagemToner: /html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table[2]/tbody/tr[4]/td[2]
 		}
 
 	//-------------------------------------------------------------------//
@@ -282,7 +286,7 @@ var requestsOptionsMap =
 
 // ***************************************************************************************************************** //
 
-		/*
+/*
     dadosGov_Ubs_DatasetPage : 
 	{
         xpathToCollect : 
@@ -292,6 +296,7 @@ var requestsOptionsMap =
 		
         host: "dados.gov.br",
         path: "/dataset/unidades-basicas-de-saude-ubs",
+		
         reqCallBackFn : function(response)
 		{
             let body = '';
@@ -307,25 +312,14 @@ var requestsOptionsMap =
             });
         }        
     }  
-		*/	
-};
-
-http.get(
+	http.get(
     requestsOptionsMap.dadosGov_Ubs_DatasetPage,
     requestsOptionsMap.dadosGov_Ubs_DatasetPage.reqCallBackFn);
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+*/	
+		
 
-
-/*https.get(requestsOptionsMap.dadosGov_Ubs_DatasetPage, function(response) {
+/*
+https.get(requestsOptionsMap.dadosGov_Ubs_DatasetPage, function(response) {
     var body = '';
     response.on('data', function(data) {
         body += data;
