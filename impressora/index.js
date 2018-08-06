@@ -24,7 +24,7 @@ var printer_LexMark_MS811dn_ip226 = new impressora ("Lexmark", "MS811 dn","Eletr
 
 //------------------------///----------------------//------------------------------//-------------------//
 //5
-var printer_LexMark_MS811dn_ip238 = new impressora ("Lexmark", "MS811 dn","Consultório", "192.168.0.238""Andar:2 ,Sala: 14");
+var printer_LexMark_MS811dn_ip238 = new impressora ("Lexmark", "MS811 dn","Consultório", "192.168.0.238", "Andar:2 ,Sala: 14");
 
 //------------------------///----------------------//------------------------------//-------------------//
 //6, local
@@ -108,7 +108,7 @@ var printer_LexMark_MS811dn_ip187 = new impressora ("Lexmark", "MS811 dn","lugar
 */
 //------------------------//------------------------//--------------------------------//----------------//
 //26
-var printer_Mdl_MS811dn_ip189 = new impressora ("Lexmark", "MS811 dn","Administracao", "192.168.0.189", "Andar:Terreo, Sala:8");
+var printer_LexMark_MS811dn_ip189 = new impressora ("Lexmark", "MS811 dn","Administracao", "192.168.0.189", "Andar:Terreo, Sala:8");
 /*
 //------------------------///----------------------//------------------------------//-------------------//
 //27
@@ -146,6 +146,9 @@ class impressora
         console.log(this.marca+" | "+this.modelo+" | "+this.local+" | "+this.ip+" | "+this.Andar);
     }
 }
+
+	var selectImpressora = printer_Mdl_MS811dn_ip189;
+	selectImpressora.toString();
 // ***************************************************************************************************************** //
 
 
@@ -154,7 +157,7 @@ function getDataFromXpath(xml,xpathToSelect)
     var doc = new dom().parseFromString(xml)
     var nodes = xpath.select(xpathToSelect, doc)
     
-    console.log(nodes)
+    console.log(nodes);
 }
 
 var requestsOptionsMap = 
@@ -163,7 +166,7 @@ var requestsOptionsMap =
 	{
         host:       "192.168.0.2",
         port:       "3128",
-        path:       "http://"+impLexmarkT654Compras.ip"+/cgi-bin/dynamic/printer/config/reports/devicestatistics.html",
+        path:       "http://"+printer_Mdl_MS811dn_ip189.ip"+/cgi-bin/dynamic/printer/config/reports/devicestatistics.html",
         headers:
 	    {
                 'Proxy-Authorization':  'Basic ' + new Buffer('wagner:nicolas1*').toString('base64')
@@ -235,28 +238,21 @@ var requestsOptionsMap =
 			~"SCX 5635" toner : MLT-D208
 		#
 		*/	
-		
-		getLadosSamsung()
-		//impresões totais (um lado + dois lados)
+		LexMark_Printer_Stats_color:
 		{
-			/html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr[2]/td[2]
-		}
+			XPathCollectLexmark:
 			
-		getFolhasUsadasTotal()
-		{
-			/html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr[6]/td[2]
-		}
-
-		getFolhasUsadasDoisLados()
-		{
-			/html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr[11]/td[2]
-		}
-		
-		getPorcentagemToner()
-		{
-			/html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table[2]/tbody/tr[4]/td[2]
-		}
-
+			{
+				
+				getLadosSamsung: "/html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr[2]/td[2]"
+				//impresões totais (um lado + dois lados)
+				
+				getFolhasUsadasTotal:"/html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr[6]/td[2]"
+				
+				getFolhasUsadasDoisLados:"/html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr[11]/td[2]"
+				
+				getPorcentagemToner:"/html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table[2]/tbody/tr[4]/td[2]"
+			}
 	//-------------------------------------------------------------------//
 		
 	//------------------- Coleta estatistica Epson -------------------//
