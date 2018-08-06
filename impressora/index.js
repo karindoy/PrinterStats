@@ -5,7 +5,7 @@ var http = require('http'),
     xpath = require('xpath'),
     dom = require('xmldom').DOMParser;
 
-
+/*
 // *******************************************   Atributos impressora   ************************************************** //
 //1
 var printer_LexMark_MS811dn_ip189 = new impressora ("Lexmark", "MS811 dn","Sala dr carlos", "192.168.0.83","Andar:1 ,Sala: 1");
@@ -105,11 +105,11 @@ var printer_LexMark_MS811dn_ip229 = new impressora ("Lexmark", "MS811 dn","lugar
 //------------------------///----------------------//------------------------------//-------------------//
 //25
 var printer_LexMark_MS811dn_ip187 = new impressora ("Lexmark", "MS811 dn","lugar", "192.168.0.187", "Andar:x ,Sala: y");
-
+*/
 //------------------------//------------------------//--------------------------------//----------------//
 //26
 var printer_Mdl_MS811dn_ip189 = new impressora ("Lexmark", "MS811 dn","Administracao", "192.168.0.189", "Andar:Terreo, Sala:8");
-
+/*
 //------------------------///----------------------//------------------------------//-------------------//
 //27
 var printer_LexMark_MS317_ip227 = new impressora ("Lexmark", "MS317","lugar", "192.168.0.227", "Andar:x ,Sala: y");
@@ -124,7 +124,7 @@ var printer_LexMark_T654_ip129 = new impressora ("Lexmark", "T654 dn","lugar", "
 
 //------------------------///----------------------//------------------------------//-------------------//
 //NomeImpressora.toString();
-
+*/
 // ***************************************************************************************************************** //
 
 // ************************************************* Classe impressora ********************************************* //
@@ -148,9 +148,6 @@ class impressora
 }
 // ***************************************************************************************************************** //
 
-var impLexmarkT654Compras = new impressora ("Lexmark", "T654 dn","lugar", "192.168.0.129");
-
-
 
 function getDataFromXpath(xml,xpathToSelect)
 {
@@ -167,16 +164,17 @@ var requestsOptionsMap =
         host:       "192.168.0.2",
         port:       "3128",
         path:       "http://"+impLexmarkT654Compras.ip"+/cgi-bin/dynamic/printer/config/reports/devicestatistics.html",
-        headers:    
+        headers:
 	    {
                 'Proxy-Authorization':  'Basic ' + new Buffer('wagner:nicolas1*').toString('base64')
-            },
+        },
     
 	    reqCallBackFn : function(response)
 	    {
-                console.log(response);
-            }
-        },
+            console.log(response);
+        }
+    },
+};
 		
 // ********************************************** Coleta Estatistica ********************************************************* //		
 	
@@ -196,28 +194,38 @@ var requestsOptionsMap =
 				~"CS510 de"
 			#
 		*/	
-	
-		getTotalPaginasImpressas ()
-		//caminho: Contagem lados de mídia>Lados mon. reco.>total
-
+	LexMark_Printer_Stats_mono:
+	{
+		XPathCollectLexmark:
 		{
-			/html/body/table[5]/tbody/tr[8]/td[2]/p
-		}
-
-
-		getLados()
-		//caminho: Contagem lados de mídia>Lados monocromáticos impressos
-		{
-			/html/body/table[5]/tbody/tr[20]/td[2]/p
-		}
-
-
-		getCartuchoPretoInstallDate()
-		//caminho: Info de suprimentos>Cartucho Preto
-		{
-			/html/body/table[8]/tbody/tr[3]/td[2]/p
-		}
+			//caminho: Contagem lados de mídia>Lados mon. reco.>total
+			getTotalPaginasImpressas:"/html/body/table[5]/tbody/tr[8]/td[2]/p"
+			
+			//caminho: Contagem lados de mídia>Lados monocromáticos impressos
+			getLados:"/html/body/table[5]/tbody/tr[20]/td[2]/p"
+			
+			//caminho: Info de suprimentos>Cartucho Preto
+			getCartuchoPretoInstallDate::"/html/body/table[8]/tbody/tr[3]/td[2]/p"
+		},
 		
+		host:,
+		path:,
+		reqCallBackFn : function(response)
+		{
+            let body = '';
+            response.on('data', function(dta)
+			{
+                body += dta;
+            });
+			
+            response.on('end', function()
+			{
+                getDataFromXpath(body,
+                                 requestsOptionsMap.LexMark_Printer_Stats_mono.XPathCollectLexmark.getTotalPaginasImpressas);
+            });
+        }
+		
+	}
 	//-------------------------------------------------------------------//
 	
 	//------------------- Coleta estatistica Samsung -------------------//
@@ -282,7 +290,16 @@ var requestsOptionsMap =
 
 // ***************************************************************************************************************** //
 
-		/*
+	
+
+
+http.get(
+    requestsOptionsMap.dadosGov_Ubs_DatasetPage,
+    requestsOptionsMap.dadosGov_Ubs_DatasetPage.reqCallBackFn);
+	
+	
+	
+	/*
     dadosGov_Ubs_DatasetPage : 
 	{
         xpathToCollect : 
@@ -307,22 +324,7 @@ var requestsOptionsMap =
             });
         }        
     }  
-		*/	
-};
-
-http.get(
-    requestsOptionsMap.dadosGov_Ubs_DatasetPage,
-    requestsOptionsMap.dadosGov_Ubs_DatasetPage.reqCallBackFn);
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		*/		
 
 
 /*https.get(requestsOptionsMap.dadosGov_Ubs_DatasetPage, function(response) {
