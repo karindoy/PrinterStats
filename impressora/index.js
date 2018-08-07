@@ -132,12 +132,7 @@ var printer_LexMark_T654_ip129 = new impressora ("Lexmark", "T654 dn","lugar", "
 class impressora
 {
     constructor(marca, modelo, local, ip, Andar)
-    {
-        this.marca=marca;
-        this.modelo=modelo;
-        this.local=local;
-        this.ip=ip;
-        this.Andar=Andar;
+    { this.marca=marca; this.modelo=modelo; this.local=local; this.ip=ip; this.Andar=Andar;
 
     }
 
@@ -147,10 +142,11 @@ class impressora
     }
 }
 
-	var selectImpressora = printer_Mdl_MS811dn_ip189;
+impressora.toString(printer_LexMark_MS811dn_ip18.ip);
+	var selectImpressora = printer_LexMark_MS811dn_ip18;
 	selectImpressora.toString();
 // ***************************************************************************************************************** //
-
+/*--------------------------------------------llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
 
 function getDataFromXpath(xml,xpathToSelect)
 {
@@ -166,7 +162,7 @@ var requestsOptionsMap =
 	{
         host:       "192.168.0.2",
         port:       "3128",
-        path:       "http://"+printer_Mdl_MS811dn_ip189.ip"+/cgi-bin/dynamic/printer/config/reports/devicestatistics.html",
+        path:       "http://"+printer_LexMark_MS811dn_ip18.ip+"+/cgi-bin/dynamic/printer/config/reports/devicestatistics.html",
         headers:
 	    {
                 'Proxy-Authorization':  'Basic ' + new Buffer('wagner:nicolas1*').toString('base64')
@@ -177,7 +173,7 @@ var requestsOptionsMap =
             console.log(response);
         }
     },
-};
+}
 		
 // ********************************************** Coleta Estatistica ********************************************************* //		
 	
@@ -197,6 +193,7 @@ var requestsOptionsMap =
 				~"CS510 de"
 			#
 		*/	
+		/*--------------------------------//////////////////////////
 	LexMark_Printer_Stats_mono:
 	{
 		XPathCollectLexmark:
@@ -208,7 +205,7 @@ var requestsOptionsMap =
 			getLados:"/html/body/table[5]/tbody/tr[20]/td[2]/p"
 			
 			//caminho: Info de suprimentos>Cartucho Preto
-			getCartuchoPretoInstallDate::"/html/body/table[8]/tbody/tr[3]/td[2]/p"
+			getCartuchoPretoInstallDate:"/html/body/table[8]/tbody/tr[3]/td[2]/p"
 		},
 		
 		host:,
@@ -238,6 +235,7 @@ var requestsOptionsMap =
 			~"SCX 5635" toner : MLT-D208
 		#
 		*/	
+		/*-----------------------//////////////////////
 		LexMark_Printer_Stats_color:
 		{
 			XPathCollectLexmark:
@@ -253,6 +251,7 @@ var requestsOptionsMap =
 				
 				getPorcentagemToner:"/html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table[2]/tbody/tr[4]/td[2]"
 			}
+		}
 	//-------------------------------------------------------------------//
 		
 	//------------------- Coleta estatistica Epson -------------------//
@@ -287,7 +286,7 @@ var requestsOptionsMap =
 // ***************************************************************************************************************** //
 
 	
-
+/*---------------------***************-------///////////////////////////////
 
 http.get(
     requestsOptionsMap.dadosGov_Ubs_DatasetPage,
