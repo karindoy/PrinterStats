@@ -154,8 +154,8 @@ printer_LexMark_MS811dn_ip189.toString();
 	var selectImpressora = printer_LexMark_MS811dn_ip189;
 
 	selectImpressora.toString();
+	console.log(selectImpressora.ip);
 
-/*--------------------------------------------llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
 
 function getDataFromXpath(xml,xpathToSelect)
 {
@@ -165,24 +165,8 @@ function getDataFromXpath(xml,xpathToSelect)
     console.log(nodes);
 }
 
-var requestsOptionsMap = 
-{
-    printer_M811dn_ip189 : 
-	{
-        host:       "192.168.0.2",
-        port:       "3128",
-        path:       "http://"+printer_LexMark_MS811dn_ip18.ip+"+/cgi-bin/dynamic/printer/config/reports/devicestatistics.html",
-        headers:
-	    {
-                'Proxy-Authorization':  'Basic ' + new Buffer('wagner:nicolas1*').toString('base64')
-        },
-    
-	    reqCallBackFn : function(response)
-	    {
-            console.log(response);
-        }
-    },
-}
+
+
 		
 // ********************************************** Coleta Estatistica ********************************************************* //		
 	
@@ -202,7 +186,7 @@ var requestsOptionsMap =
 				~"CS510 de"
 			#
 		*/	
-		/*--------------------------------//////////////////////////
+		
 	LexMark_Printer_Stats_mono:
 	{
 		XPathCollectLexmark:
@@ -215,12 +199,23 @@ var requestsOptionsMap =
 			
 			//caminho: Info de suprimentos>Cartucho Preto
 			getCartuchoPretoInstallDate:"/html/body/table[8]/tbody/tr[3]/td[2]/p"
-		},
+		}
 		
-		host:,
-		path:,
-		reqCallBackFn : function(response)
-		{
+		
+var requestsOptionsMap = 
+{
+    selectImpressora : 
+	{
+        host:       "192.168.0.2",
+        port:       "3128",
+		path:       "http://"+selectImpressora.ip+"/cgi-bin/dynamic/printer/config/reports/devicestatistics.html",
+        headers:
+	    {
+                'Proxy-Authorization':  'Basic ' + new Buffer('wagner:nicolas1*').toString('base64')
+        },
+    
+	    reqCallBackFn : function(response)
+	    {
             let body = '';
             response.on('data', function(dta)
 			{
@@ -231,8 +226,11 @@ var requestsOptionsMap =
 			{
                 getDataFromXpath(body,
                                  requestsOptionsMap.LexMark_Printer_Stats_mono.XPathCollectLexmark.getTotalPaginasImpressas);
-            });
+			});
+			
         }
+    },
+}
 		
 	}
 	//-------------------------------------------------------------------//
