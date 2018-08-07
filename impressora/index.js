@@ -3,8 +3,31 @@ console.log("==[index.js]=>");
 var http = require('http'),
     https = require('https'),
     xpath = require('xpath'),
-    dom = require('xmldom').DOMParser;
+	dom = require('xmldom').DOMParser;
+	
 
+// ************************************************* Classe impressora ********************************************* //
+
+class impressora
+{
+    constructor(marca, modelo, local, ip, Andar)
+	{ 	
+		this.marca=marca;
+		 this.modelo=modelo;
+		  this.local=local; 
+		  this.ip=ip; 
+		  this.Andar=Andar;
+
+    }
+
+    toString ()
+    {
+        console.log(this.marca+" | "+this.modelo+" | "+this.local+" | "+this.ip+" | "+this.Andar);
+    }
+}
+
+
+// ***************************************************************************************************************** //
 /*
 // *******************************************   Atributos impressora   ************************************************** //
 //1
@@ -127,25 +150,11 @@ var printer_LexMark_T654_ip129 = new impressora ("Lexmark", "T654 dn","lugar", "
 */
 // ***************************************************************************************************************** //
 
-// ************************************************* Classe impressora ********************************************* //
+printer_LexMark_MS811dn_ip189.toString();
+	var selectImpressora = printer_LexMark_MS811dn_ip189;
 
-class impressora
-{
-    constructor(marca, modelo, local, ip, Andar)
-    { this.marca=marca; this.modelo=modelo; this.local=local; this.ip=ip; this.Andar=Andar;
-
-    }
-
-    toString ()
-    {
-        console.log(this.marca+" | "+this.modelo+" | "+this.local+" | "+this.ip+" | "+this.Andar);
-    }
-}
-
-impressora.toString(printer_LexMark_MS811dn_ip18.ip);
-	var selectImpressora = printer_LexMark_MS811dn_ip18;
 	selectImpressora.toString();
-// ***************************************************************************************************************** //
+
 /*--------------------------------------------llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
 
 function getDataFromXpath(xml,xpathToSelect)
