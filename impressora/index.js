@@ -187,162 +187,159 @@ function getDataFromXpath(xml,xpathToSelect)
 			#
 		*/	
 		
-	LexMark_Printer_Stats_mono:
+		
+					
+	var requestsOptionsMap = 
 	{
-		XPathCollectLexmark:
+		LexMark_Printer_Stats_mono: 
 		{
-			//caminho: Contagem lados de mídia>Lados mon. reco.>total
-			getTotalPaginasImpressas:"/html/body/table[5]/tbody/tr[8]/td[2]/p"
+			host:       "192.168.0.2",
+			port:       "3128",
+			path:       "http://"+selectImpressora.ip+"/cgi-bin/dynamic/printer/config/reports/devicestatistics.html",
 			
-			//caminho: Contagem lados de mídia>Lados monocromáticos impressos
-			getLados:"/html/body/table[5]/tbody/tr[20]/td[2]/p"
-			
-			//caminho: Info de suprimentos>Cartucho Preto
-			getCartuchoPretoInstallDate:"/html/body/table[8]/tbody/tr[3]/td[2]/p"
-		}
-		
-		
-var requestsOptionsMap = 
-{
-    selectImpressora : 
-	{
-        host:       "192.168.0.2",
-        port:       "3128",
-		path:       "http://"+selectImpressora.ip+"/cgi-bin/dynamic/printer/config/reports/devicestatistics.html",
-        headers:
-	    {
-                'Proxy-Authorization':  'Basic ' + new Buffer('wagner:nicolas1*').toString('base64')
-        },
-    
-	    reqCallBackFn : function(response)
-	    {
-            let body = '';
-            response.on('data', function(dta)
+			headers:
 			{
-                body += dta;
-            });
-			
-            response.on('end', function()
-			{
-                getDataFromXpath(body,
-                                 requestsOptionsMap.LexMark_Printer_Stats_mono.XPathCollectLexmark.getTotalPaginasImpressas);
-			});
-			
-        }
-    },
-}
-		
-	}
-	//-------------------------------------------------------------------//
-	
-	//------------------- Coleta estatistica Samsung -------------------//
-		/*
-		#Modelos de impressoras Samsung coloridas#
-		
-			~"SCX 5635" toner : MLT-D208
-		#
-		*/	
-		/*-----------------------//////////////////////
-		LexMark_Printer_Stats_color:
-		{
+					'Proxy-Authorization':  'Basic ' + new Buffer('wagner:nicolas1*').toString('base64')
+			},
+
 			XPathCollectLexmark:
-			
 			{
+				//caminho: Contagem lados de mídia>Lados mon. reco.>total
+				getTotalPaginasImpressas:"/html/body/table[5]/tbody/tr[8]/td[2]/p"
 				
-				getLadosSamsung: "/html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr[2]/td[2]"
-				//impresões totais (um lado + dois lados)
+			/*	//caminho: Contagem lados de mídia>Lados monocromáticos impressos
+				getLados:"/html/body/table[5]/tbody/tr[20]/td[2]/p"
 				
-				getFolhasUsadasTotal:"/html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr[6]/td[2]"
+				//caminho: Info de suprimentos>Cartucho Preto
+				getCartuchoPretoInstallDate:"/html/body/table[8]/tbody/tr[3]/td[2]/p"
+			*/
+			},
+
+			
+		
+			reqCallBackFn : function(response)
+			{
+				let body = '';
+				response.on('data', function(dta)
+				{
+					body += dta;
+				});
 				
-				getFolhasUsadasDoisLados:"/html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr[11]/td[2]"
-				
-				getPorcentagemToner:"/html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table[2]/tbody/tr[4]/td[2]"
-			}
+				response.on('end', function()
+				{
+					getDataFromXpath(body,
+									 requestsOptionsMap.LexMark_Printer_Stats_mono.XPathCollectLexmark.getTotalPaginasImpressas);
+
+									
+				});
+			}  
 		}
-	//-------------------------------------------------------------------//
 		
-	//------------------- Coleta estatistica Epson -------------------//
-		/*
-		#Modelos de impressoras Epson coloridas#
-		
-			~"L355"
-		#
-		*/	
-	//-------------------------------------------------------------------//
+	};
 	
-	//------------------- Coleta estatistica HP -------------------//
-		/*
-		#Modelos de impressoras HP monocromaticas#
+	
+	http.get(requestsOptionsMap.LexMark_Printer_Stats_mono,
+				requestsOptionsMap.LexMark_Printer_Stats_mono.reqCallBackFn);
+	
 		
-			~"laserjet 1320"
+		//-------------------------------------------------------------------//
+		
+		//------------------- Coleta estatistica Samsung -------------------//
+			/*
+			#Modelos de impressoras Samsung coloridas#
 			
-		#
-		*/	
-	//-------------------------------------------------------------------//
+				~"SCX 5635" toner : MLT-D208
+			#
+			*/
 	
-	//------------------- Coleta estatistica Phaser -------------------//
-		/*
-		#Modelos de impressoras Phaser #
+			/*
+			LexMark_Printer_Stats_color:
+			{
+				XPathCollectLexmark:
+				
+				{
+					
+					getLadosSamsung: "/html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr[2]/td[2]"
+					//impresões totais (um lado + dois lados)
+					
+					getFolhasUsadasTotal:"/html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr[6]/td[2]"
+					
+					getFolhasUsadasDoisLados:"/html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr[11]/td[2]"
+					
+					getPorcentagemToner:"/html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table[2]/tbody/tr[4]/td[2]"
+				}
+			}
+			*/
+		//-------------------------------------------------------------------//
+			
+		//------------------- Coleta estatistica Epson -------------------//
+			/*
+			#Modelos de impressoras Epson coloridas#
+			
+				~"L355"
+			#
+			*/	
+		//-------------------------------------------------------------------//
 		
-			~"3100MFP"
-		#
-		*/	
-	//-------------------------------------------------------------------//
-
-
-// ***************************************************************************************************************** //
-
+		//------------------- Coleta estatistica HP -------------------//
+			/*
+			#Modelos de impressoras HP monocromaticas#
+			
+				~"laserjet 1320"
+				
+			#
+			*/	
+		//-------------------------------------------------------------------//
+		
+		//------------------- Coleta estatistica Phaser -------------------//
+			/*
+			#Modelos de impressoras Phaser #
+			
+				~"3100MFP"
+			#
+			*/	
+		//-------------------------------------------------------------------//
 	
-/*---------------------***************-------///////////////////////////////
-
-http.get(
-    requestsOptionsMap.dadosGov_Ubs_DatasetPage,
-    requestsOptionsMap.dadosGov_Ubs_DatasetPage.reqCallBackFn);
 	
+	// ***************************************************************************************************************** //
 	
-	
+		
 	/*
-    dadosGov_Ubs_DatasetPage : 
-	{
-        xpathToCollect : 
-		{
-            dtaUltimaAtualizacaoDaPagina :"/html/body/div[3]/div/div[3]/div/article/div/section[3]/table/tbody/tr[3]/td/span"
-        },
+		http.get(
+		requestsOptionsMap.dadosGov_Ubs_DatasetPage,
+		requestsOptionsMap.dadosGov_Ubs_DatasetPage.reqCallBackFn);
 		
-        host: "dados.gov.br",
-        path: "/dataset/unidades-basicas-de-saude-ubs",
-        reqCallBackFn : function(response)
+		
+		
+		
+		dadosGov_Ubs_DatasetPage : 
 		{
-            let body = '';
-            response.on('data', function(dta)
-			{
-                body += dta;
-            });
 			
-            response.on('end', function()
+			xpathToCollect : 
 			{
-                getDataFromXpath(body,
-                                 requestsOptionsMap.dadosGov_Ubs_DatasetPage.xpathToCollect.dtaUltimaAtualizacaoDaPagina);
-            });
-        }        
-    }  
-		*/		
-
-
-/*https.get(requestsOptionsMap.dadosGov_Ubs_DatasetPage, function(response) {
-    var body = '';
-    response.on('data', function(data) {
-        body += data;
-    });
-    response.on('end', function() {
-        console.log(body);
-        //var parsed = JSON.parse(body);
-        //console.log(parsed);
-        //reqCallBackFn(parsed);
-        //reqCallBackFn({
-        //    email: parsed.email,
-        //    password: parsed.pass
-        //});
-    });
-});
-*/
+				dtaUltimaAtualizacaoDaPagina :"/html/body/div[3]/div/div[3]/div/article/div/section[3]/table/tbody/tr[3]/td/span"
+			},
+			
+	
+			
+			host: "dados.gov.br",
+			path: "/dataset/unidades-basicas-de-saude-ubs",
+			
+	
+			
+			reqCallBackFn : function(response)
+			{
+				let body = '';
+				response.on('data', function(dta)
+				{
+					body += dta;
+				});
+				
+				response.on('end', function()
+				{
+					getDataFromXpath(body,
+									 requestsOptionsMap.dadosGov_Ubs_DatasetPage.xpathToCollect.dtaUltimaAtualizacaoDaPagina);
+				});
+			}  
+				
+		}  */
