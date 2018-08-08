@@ -31,7 +31,7 @@ class impressora
 /*
 // *******************************************   Atributos impressora   ************************************************** //
 //1
-var printer_LexMark_MS811dn_ip83 = new impressora ("Lexmark", "MS811 dn","Sala dr carlos", "192.168.0.83","Andar:1 ,Sala: 1");
+var printer_LexMark_MS811dn_ip189 = new impressora ("Lexmark", "MS811 dn","Sala dr carlos", "192.168.0.83","Andar:1 ,Sala: 1");
 
 //------------------------//------------------------//--------------------------------//----------------//
 //2
@@ -147,35 +147,6 @@ var printer_LexMark_T654_ip129 = new impressora ("Lexmark", "T654 dn","lugar", "
 
 //------------------------///----------------------//------------------------------//-------------------//
 //NomeImpressora.toString();
-<<<<<<< HEAD
-
-// ***************************************************************************************************************** //
-
-// ************************************************* Classe impressora ********************************************* //
-
-class impressora
-{
-    constructor(marca, modelo, local, ip, Andar)
-    {
-        this.marca=marca;
-        this.modelo=modelo;
-        this.local=local;
-        this.ip=ip;
-        this.Andar=Andar;
-
-    }
-
-    toString ()
-    {
-        console.log(this.marca+" | "+this.modelo+" | "+this.local+" | "+this.ip+" | "+this.Andar);
-    }
-	
-	selectImpressora=printer_Mdl_MS811dn_ip189;
-	
-}
-// ***************************************************************************************************************** //
-// ********************************************** get Data from XPath ********************************************************* //		
-=======
 */
 // ***************************************************************************************************************** //
 
@@ -185,7 +156,6 @@ printer_LexMark_MS811dn_ip189.toString();
 	selectImpressora.toString();
 	console.log(selectImpressora.ip);
 
->>>>>>> 9cdb00c333154f8a71858a604e9133aeebaf2ef7
 
 function getDataFromXpath(xml,xpathToSelect)
 {
@@ -194,33 +164,9 @@ function getDataFromXpath(xml,xpathToSelect)
     
     console.log(nodes);
 }
-// ***************************************************************************************************************** //
-
-<<<<<<< HEAD
-// ********************************************** Proxy pass ********************************************************* //		
-var requestsOptionsMapProxy = 
-{
-    printer_M811dn_ip189 : 
-	{
-        host:       "192.168.0.2",
-        port:       "3128",
-        path:       "http://"+impLexmarkT654Compras.ip"+/cgi-bin/dynamic/printer/config/reports/devicestatistics.html",
-        headers:    
-	    {
-                'Proxy-Authorization':  'Basic ' + new Buffer('wagner:nicolas1*').toString('base64')
-        },
-    
-	    reqCallBackFn : function(response)
-	    {
-                console.log(response);
-        }
-    },
-};
-// ***************************************************************************************************************** //
-=======
 
 
->>>>>>> 9cdb00c333154f8a71858a604e9133aeebaf2ef7
+
 		
 // ********************************************** Coleta Estatistica ********************************************************* //		
 	
@@ -240,28 +186,6 @@ var requestsOptionsMapProxy =
 				~"CS510 de"
 			#
 		*/	
-<<<<<<< HEAD
-	
-		getTotalPaginasImpressas ()
-		//caminho: Contagem lados de mídia>Lados mon. reco.>total
-
-		{
-			TotalPaginasImpressas: /html/body/table[5]/tbody/tr[8]/td[2]/p
-		}
-
-
-		getLadosImpressos()
-		//caminho: Contagem lados de mídia>Lados monocromáticos impressos
-		{
-			LadosImpressos:/html/body/table[5]/tbody/tr[20]/td[2]/p
-		}
-
-
-		getCartuchoPretoInstallDate()
-		//caminho: Info de suprimentos>Cartucho Preto
-		{
-			CartuchoPretoInstallDate:/html/body/table[8]/tbody/tr[3]/td[2]/p
-=======
 		
 	LexMark_Printer_Stats_mono:
 	{
@@ -275,7 +199,6 @@ var requestsOptionsMapProxy =
 			
 			//caminho: Info de suprimentos>Cartucho Preto
 			getCartuchoPretoInstallDate:"/html/body/table[8]/tbody/tr[3]/td[2]/p"
->>>>>>> 9cdb00c333154f8a71858a604e9133aeebaf2ef7
 		}
 		
 		
@@ -319,28 +242,6 @@ var requestsOptionsMap =
 			~"SCX 5635" toner : MLT-D208
 		#
 		*/	
-<<<<<<< HEAD
-		
-		getLadosImpressos()
-		//impresões totais (um lado + dois lados)
-		{
-			LadosImpressos:/html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr[2]/td[2]
-		}
-			
-		getFolhasUsadasTotal()
-		{
-			FolhasUsadasTotal: /html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr[6]/td[2]
-		}
-
-		getFolhasUsadasDoisLados()
-		{
-			FolhasUsadasDoisLados:/html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr[11]/td[2]
-		}
-		
-		getPorcentagemToner()
-		{
-			PorcentagemToner: /html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table[2]/tbody/tr[4]/td[2]
-=======
 		/*-----------------------//////////////////////
 		LexMark_Printer_Stats_color:
 		{
@@ -357,7 +258,6 @@ var requestsOptionsMap =
 				
 				getPorcentagemToner:"/html/body/table/tbody/tr[1]/td/table[2]/tbody/tr[2]/td/table/tbody/tr/td/table[2]/tbody/tr[4]/td[2]"
 			}
->>>>>>> 9cdb00c333154f8a71858a604e9133aeebaf2ef7
 		}
 	//-------------------------------------------------------------------//
 		
@@ -392,9 +292,6 @@ var requestsOptionsMap =
 
 // ***************************************************************************************************************** //
 
-<<<<<<< HEAD
-/*
-=======
 	
 /*---------------------***************-------///////////////////////////////
 
@@ -405,7 +302,6 @@ http.get(
 	
 	
 	/*
->>>>>>> 9cdb00c333154f8a71858a604e9133aeebaf2ef7
     dadosGov_Ubs_DatasetPage : 
 	{
         xpathToCollect : 
@@ -415,7 +311,6 @@ http.get(
 		
         host: "dados.gov.br",
         path: "/dataset/unidades-basicas-de-saude-ubs",
-		
         reqCallBackFn : function(response)
 		{
             let body = '';
@@ -431,19 +326,10 @@ http.get(
             });
         }        
     }  
-<<<<<<< HEAD
-	http.get(
-    requestsOptionsMap.dadosGov_Ubs_DatasetPage,
-    requestsOptionsMap.dadosGov_Ubs_DatasetPage.reqCallBackFn);
-*/	
-		
-=======
 		*/		
 
->>>>>>> 9cdb00c333154f8a71858a604e9133aeebaf2ef7
 
-/*
-https.get(requestsOptionsMap.dadosGov_Ubs_DatasetPage, function(response) {
+/*https.get(requestsOptionsMap.dadosGov_Ubs_DatasetPage, function(response) {
     var body = '';
     response.on('data', function(data) {
         body += data;
