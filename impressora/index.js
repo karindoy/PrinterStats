@@ -150,9 +150,9 @@ var printer_LexMark_T654_ip129 = new impressora ("Lexmark", "T654 dn","lugar", "
 */
 // ***************************************************************************************************************** //
 
-printer_LexMark_MS811dn_ip189.toString();
-	var selectImpressora = printer_LexMark_MS811dn_ip189;
+	printer_LexMark_MS811dn_ip189.toString();
 
+	var selectImpressora = printer_LexMark_MS811dn_ip189;
 	selectImpressora.toString();
 	console.log(selectImpressora.ip);
 
@@ -205,7 +205,8 @@ function getDataFromXpath(xml,xpathToSelect)
 			XPathCollectLexmark:
 			{
 				//caminho: Contagem lados de mídia>Lados mon. reco.>total
-				getTotalPaginasImpressas:"/html/body/table[5]/tbody/tr[8]/td[2]/p"
+				getTotalPaginasImpressas:"/html/body/table[4]/tbody/tr[3]/td[2]/p",
+				
 				
 			/*	//caminho: Contagem lados de mídia>Lados monocromáticos impressos
 				getLados:"/html/body/table[5]/tbody/tr[20]/td[2]/p"
@@ -232,14 +233,15 @@ function getDataFromXpath(xml,xpathToSelect)
 
 									
 				});
+
 			}  
 		}
 		
 	};
 	
 	
-	http.get(requestsOptionsMap.LexMark_Printer_Stats_mono,
-				requestsOptionsMap.LexMark_Printer_Stats_mono.reqCallBackFn);
+	
+	http.get(requestsOptionsMap.LexMark_Printer_Stats_mono, requestsOptionsMap.LexMark_Printer_Stats_mono.reqCallBackFn);
 	
 		
 		//-------------------------------------------------------------------//
